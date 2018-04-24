@@ -28,13 +28,13 @@ def extract_urls(base,payload):
     links = np.asarray(links)[:,3]
     #some sanitization
     links = links[~(links=='')]
-    import ipdb; ipdb.set_trace()
+   # import ipdb; ipdb.set_trace()
     #complete relative and anchor links
     for u in range(0,len(links)):
         if(links[u].startswith('#')):
             links[u] = base+links[u]
         else:
-            links[u]= urllib.parse.urljoin(link,links[u])# works fine for two http links
+            links[u]= urllib.parse.urljoin(base,links[u])# works fine for two http links
     links = np.asarray([str(link) for link in links if link[:].startswith('http')])
     return links.reshape((len(links),1))
 
