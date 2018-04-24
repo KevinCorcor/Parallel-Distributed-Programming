@@ -87,7 +87,7 @@ def chat_server():
                             SOCKET_LIST.remove(sock) # remove the socket that's broken
 
 
-                        print colored(clearline+"Client (%s, %s) Disconnected\n" % addr[:2],'red')
+                        print colored(clearline+"Client (%s, %s) Disconnected" % addr[:2],'red')
 
                         broadcast(server_socket,\
                                   sock,\
