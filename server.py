@@ -63,7 +63,7 @@ def chat_server():
                 broadcast(server_socket,\
                           conn,\
                           colored(clearline + "[%s,%s] Entered the chat\n"  % addr[:2],'green',attrs=['bold','reverse']))
-                print  "No. of Current Clients: ", len(SOCKET_LIST)
+                print  "No. of Current Clients: ", len(SOCKET_LIST)-1
 
 
             else: # a message from a client, not a new connection
@@ -94,7 +94,7 @@ def chat_server():
                                   colored(clearline+"Client (%s, %s) is now offline\n" % addr[:2],'red',attrs=['bold','reverse']))
 
                         sock.close
-                        print  "No. of Current Clients: ", len(SOCKET_LIST)
+                        print  "No. of Current Clients: ", len(SOCKET_LIST)-1
 
                 except: #failed to receive any data from client. We don't remove since we can try again
 
@@ -103,7 +103,7 @@ def chat_server():
                               colored(clearline+"Client (%s, %s) is now offline\n" % addr[:2], 'red',attrs=['bold','reverse']))
 
                     sock.close()
-                    print  "No. of Current Clients: ", len(SOCKET_LIST)
+                    print  "No. of Current Clients: ", len(SOCKET_LIST)-1
                     continue
 
     server_socket.close()
